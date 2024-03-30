@@ -1,0 +1,19 @@
+server:
+  port: 8803
+
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+        - id : Employee-Module
+          uri:
+            lb://Employee-Module
+          predicates:
+          - Path=/api/employe-service/**
+          
+        - id : Department-Module
+          uri:
+            lb://Department-Module
+          predicates:
+          - Path=/api/department-service/**
